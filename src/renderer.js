@@ -6,7 +6,9 @@ let catg = ["Hello There!", "Hi!", "Hello!"];
 const checkReminders = () => {
   const list = refreshList();
   list.forEach((l) => {
-    if (l.isNotified == "nan") continue;
+    if (l.isNotified == "nan") {
+      return;
+    }
     if (Date.parse(l.time) <= new Date().getTime() && !l.isNotified) {
       l.category == "fit" ? (catg = fittxt) : null;
       l.category == "pro" ? (catg = progtxt) : null;

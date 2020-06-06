@@ -115,6 +115,7 @@
           return;
         }
         const notif = check.checked ? false : "nan";
+        alert(notif);
 
         ipcRenderer.send("item:add", [
           reminder.value,
