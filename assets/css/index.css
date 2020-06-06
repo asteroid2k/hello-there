@@ -1,0 +1,11 @@
+nav {
+  margin-bottom: 20px;
+}
+.time {
+  position: absolute;
+  font-size: 18px;
+  right: 10px;
+}
+.title {
+  font-size: 20px;
+}

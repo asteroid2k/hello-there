@@ -1,0 +1,11 @@
+.timepicker-modal {
+  position: absolute;
+  margin-top: -40px;
+}
+.form-cont {
+  margin-top: 50px;
+}
+
+button {
+  width: 200px;
+}
