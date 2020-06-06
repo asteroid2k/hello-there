@@ -106,7 +106,7 @@ app.on("ready", createWindow);
 
 //Handle ipc
 ipcMain.on("item:add", (e, rmndr) => {
-  const [title, time, catg] = rmndr;
+  const [title, time, catg, notif] = rmndr;
   let [hr, min] = time.split(":");
   let t = new Date();
   t.setHours(hr, min);
@@ -117,7 +117,7 @@ ipcMain.on("item:add", (e, rmndr) => {
     timeHuman: time,
     time: t,
     category: catg,
-    notif: false,
+    isNotified: notif,
   };
   storeItem(obj);
   setTimeout(() => mainWindow.webContents.send("refresh"), 500);

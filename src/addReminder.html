@@ -67,6 +67,14 @@
                 <option value="pro">Programming</option>
               </select>
             </div>
+            <div class="input-field col s2">
+              <p>
+                <label>
+                  <input type="checkbox" id="check" />
+                  <span>Notify</span>
+                </label>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -87,6 +95,7 @@
         .querySelector("form")
         .addEventListener("submit", addItem);
 
+      const check = document.getElementById("check");
       const reminder = document.getElementById("name");
       const cat = document.getElementById("category");
       const time = document.getElementById("time");
@@ -99,14 +108,20 @@
           });
           return;
         }
-        if (!time.value.replace(/\s/g, "")) {
+        if (!time.value.replace(/\s/g, "") && check.checked) {
           M.toast({
             html: "Enter Time",
           });
           return;
         }
+        const notif = check.checked ? false : "nan";
 
-        ipcRenderer.send("item:add", [reminder.value, time.value, cat.value]);
+        ipcRenderer.send("item:add", [
+          reminder.value,
+          time.value,
+          cat.value,
+          notif,
+        ]);
       }
     </script>
     <!--JavaScript at end of body for optimized loading-->

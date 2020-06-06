@@ -72,6 +72,9 @@
           const li = document.createElement("li");
           li.id = i.id;
           li.className = "collection-item ";
+          if (i.isNotified) {
+            li.className += " done";
+          }
 
           li.innerHTML = `<p id=${i.id}><span id=${i.id} class="title">${i.title}</span><span id=${i.id} class="time">${i.timeHuman}</span></p>`;
           itemList.appendChild(li);
@@ -82,7 +85,7 @@
         deleteItem(e.target.id);
         setTimeout(() => refresh(), 1000);
         M.toast({
-          html: `Removed`,
+          html: `Reminder Removed`,
         });
       }
     </script>

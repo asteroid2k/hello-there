@@ -6,7 +6,8 @@ let catg = ["Hello There!", "Hi!", "Hello!"];
 const checkReminders = () => {
   const list = refreshList();
   list.forEach((l) => {
-    if (Date.parse(l.time) <= new Date().getTime() && !l.notif) {
+    if (l.isNotified == "nan") continue;
+    if (Date.parse(l.time) <= new Date().getTime() && !l.isNotified) {
       l.category == "fit" ? (catg = fittxt) : null;
       l.category == "pro" ? (catg = progtxt) : null;
       console.log(catg);
@@ -17,7 +18,7 @@ const checkReminders = () => {
         icon: appIcon,
         sound: true,
       });
-      setTimeout(() => editItem(l.id, "notif", true), 500);
+      setTimeout(() => editItem(l.id, "isNotified", true), 500);
     }
   });
 };

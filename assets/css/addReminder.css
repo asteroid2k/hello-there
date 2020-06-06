@@ -6,6 +6,25 @@
   margin-top: 50px;
 }
 
+#cat {
+  width: 200px;
+}
 button {
   width: 200px;
+}
+button:hover {
+  width: 205px;
+  font-size: 17px;
+}
+#check {
+  margin-left: 20px;
+}
+
+.input-field input:hover {
+  border-bottom: 1px solid #78909c;
+  box-shadow: 0 1px 0 0 #78909c;
+}
+.input-field input:focus {
+  border-bottom: 1px solid #78909c;
+  box-shadow: 0 1px 0 0 #78909c;
 }
