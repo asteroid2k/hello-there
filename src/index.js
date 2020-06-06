@@ -117,6 +117,7 @@ ipcMain.on("item:add", (e, rmndr) => {
     timeHuman: time,
     time: t,
     category: catg,
+    notif: false,
   };
   storeItem(obj);
   setTimeout(() => mainWindow.webContents.send("refresh"), 500);
@@ -150,6 +151,8 @@ const menuTemplate = [
         click() {
           createAddItemWindow();
         },
+        accelerator:
+          process.platform === "darwin" ? "Alt+Cmd+A" : "Ctrl+Shift+A",
       },
       {
         label: "Remove All",
@@ -159,6 +162,8 @@ const menuTemplate = [
             mainWindow.webContents.send("refresh");
           }, 500);
         },
+        accelerator:
+          process.platform === "darwin" ? "Alt+Cmd+X" : "Ctrl+Shift+X",
       },
       {
         label: "Dev Tool",
@@ -180,6 +185,7 @@ const menuTemplate = [
           isQuitting = true;
           app.quit();
         },
+        accelerator: process.platform === "darwin" ? "Cmd+Q" : "Ctrl+Q",
       },
     ],
   },
