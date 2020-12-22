@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "node-notifier": "^7.0.1",
+    "node-notifier": "^8.0.1",
     "open": "^7.0.4"
   },
   "devDependencies": {
